@@ -19,7 +19,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
 
         public override string[] Validar()
         {
-            string[] erros = new string[3];
+            string[] erros = new string[4];
             int contadorErros = 0;
 
             if (Nome.Length < 3)
