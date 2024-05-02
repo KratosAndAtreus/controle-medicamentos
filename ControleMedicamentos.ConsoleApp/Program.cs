@@ -3,6 +3,7 @@ using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
+using ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada;
 using ControleMedicamentos.ConsoleApp.ModuloRequisicao.Saida;
 
 namespace ControleMedicamentos.ConsoleApp
@@ -17,8 +18,6 @@ namespace ControleMedicamentos.ConsoleApp
             telaPaciente.tipoEntidade = "Paciente";
             telaPaciente.repositorio = repositorioPaciente;
 
-            telaPaciente.CadastrarEntidadeTeste();
-
             RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento();
             TelaMedicamento telaMedicamento = new TelaMedicamento();
             telaMedicamento.repositorio = repositorioMedicamento;
@@ -28,7 +27,7 @@ namespace ControleMedicamentos.ConsoleApp
 
             TelaRequisicaoSaida telaRequisicaoSaida = new TelaRequisicaoSaida();
             telaRequisicaoSaida.repositorio = repositorioRequisicaoSaida;
-            telaRequisicaoSaida.tipoEntidade = "Requisição";
+            telaRequisicaoSaida.tipoEntidade = "Requisição de Saída";
 
             telaRequisicaoSaida.telaPaciente = telaPaciente;
             telaRequisicaoSaida.telaMedicamento = telaMedicamento;
@@ -41,12 +40,29 @@ namespace ControleMedicamentos.ConsoleApp
             telaFornecedor.tipoEntidade = "Fornecedor";
             telaFornecedor.repositorio = repositorioFornecedor;
 
-            telaFornecedor.CadastrarEntidadeTeste();
-
             RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario();
             TelaFuncionario telaFuncionario = new TelaFuncionario();
             telaFuncionario.tipoEntidade = "Funcionario";
             telaFuncionario.repositorio = repositorioFuncionario;
+
+
+            RepositorioRequisicaoEntrada repositorioRequisicaoEntrada = new RepositorioRequisicaoEntrada();
+
+            TelaRequisicaoEntrada telaRequisicaoEntrada = new TelaRequisicaoEntrada();
+            telaRequisicaoEntrada.repositorio = repositorioRequisicaoEntrada;
+            telaRequisicaoEntrada.tipoEntidade = "Requisição de Entrada";
+
+            telaRequisicaoEntrada.telaMedicamento = telaMedicamento;
+            telaRequisicaoEntrada.telaFornecedor = telaFornecedor;
+            telaRequisicaoEntrada.telaFuncionario = telaFuncionario;
+
+            telaRequisicaoEntrada.repositorioMedicamento = repositorioMedicamento;
+            telaRequisicaoEntrada.repositorioFornecedor = repositorioFornecedor;
+            telaRequisicaoEntrada.repositorioFuncionario = repositorioFuncionario;
+
+            telaFornecedor.CadastrarEntidadeTeste();
+            telaMedicamento.CadastrarEntidadeTeste();
+            telaFuncionario.CadastrarEntidadeTeste();
 
             while (true)
             {
@@ -71,6 +87,9 @@ namespace ControleMedicamentos.ConsoleApp
 
                 else if (opcaoPrincipalEscolhida == '5')
                     tela = telaFornecedor;
+
+                else if (opcaoPrincipalEscolhida == '6')
+                    tela = telaRequisicaoEntrada;
 
                 char operacaoEscolhida = tela.ApresentarMenu();
 

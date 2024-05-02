@@ -31,7 +31,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
                 erros[contadorErros++] = "Por favor, informe um TELEFONE";
             }
 
-            if (string.IsNullOrEmpty(Telefone))
+            if (string.IsNullOrEmpty(CPF))
             {
                 erros[contadorErros++] = "Por favor, informe um CPF";
             }

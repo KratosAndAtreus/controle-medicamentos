@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 {
@@ -54,6 +55,13 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
             Medicamento medicamento = new Medicamento(nome, descricao, lote, dataValidade);
 
             return medicamento;
+        }
+
+        public void CadastrarEntidadeTeste()
+        {
+            Medicamento medicamento = new Medicamento("Buscopan", "Dor de cabeça", "123-123", Convert.ToDateTime("12/12/2024"));
+
+            repositorio.Cadastrar(medicamento);
         }
     }
 }

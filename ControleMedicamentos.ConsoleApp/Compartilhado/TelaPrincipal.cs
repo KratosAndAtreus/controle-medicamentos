@@ -17,6 +17,7 @@
             Console.WriteLine("3 - Cadastro de Requisições de Saída");
             Console.WriteLine("4 - Cadastro de Funcionarios");
             Console.WriteLine("5 - Cadastro de Fornecedor");
+            Console.WriteLine("6 - Cadastro de Requisição de Entrada");
 
             Console.WriteLine("S - Sair");
 

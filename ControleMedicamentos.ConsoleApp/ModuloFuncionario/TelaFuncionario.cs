@@ -1,4 +1,5 @@
 using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
     internal class TelaFuncionario : TelaBase
@@ -49,6 +50,13 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
             Funcionario novoFuncionario = new Funcionario(nome, telefone, cartaoSus);
 
             return novoFuncionario;
+        }
+
+        public void CadastrarEntidadeTeste()
+        {
+            Funcionario funcionario = new Funcionario("Bobby Tables", "49 9999-9521", "123213@13122");
+
+            repositorio.Cadastrar(funcionario);
         }
     }
 }
