@@ -1,4 +1,5 @@
 using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
     internal class Funcionario : EntidadeBase
@@ -41,6 +42,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
             Array.Copy(erros, errosFiltrados, contadorErros);
 
             return errosFiltrados;
+        }
+
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            Funcionario novasInformações = (Funcionario)novoRegistro;
+            this.Nome = novasInformações.Nome;
+            this.Telefone = novasInformações.Telefone;
+            this.CPF = novasInformações.CPF;
         }
     }
 }

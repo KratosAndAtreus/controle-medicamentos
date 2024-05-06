@@ -2,6 +2,7 @@
 using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
+using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
 {
@@ -37,7 +38,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
             if (Funcionario == null)
                 erros[contadorErros++] = "O funcionário precisa ser informado";
             
-            if (QuantidadeSolicitada == null)
+            if (QuantidadeSolicitada < 1)
                 erros[contadorErros++] = "Por favor informe uma quantidade";
 
             string[] errosFiltrados = new string[contadorErros];
@@ -51,6 +52,16 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
         {
             Medicamento.Quantidade += QuantidadeSolicitada;
             return true;
+        }
+
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            RequisicaoEntrada novasInformações = (RequisicaoEntrada)novoRegistro;
+            this.Medicamento = novasInformações.Medicamento;
+            this.Fornecedor = novasInformações.Fornecedor;
+            this.Funcionario = novasInformações.Funcionario;
+
+            this.QuantidadeSolicitada = novasInformações.QuantidadeSolicitada;
         }
     }
 }

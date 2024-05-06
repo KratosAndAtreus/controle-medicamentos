@@ -91,22 +91,27 @@ namespace ControleMedicamentos.ConsoleApp
                 else if (opcaoPrincipalEscolhida == '6')
                     tela = telaRequisicaoEntrada;
 
-                char operacaoEscolhida = tela.ApresentarMenu();
 
-                if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
-                    continue;
+                while (true) 
+                {
+                    char operacaoEscolhida = tela.ApresentarMenu();
 
-                if (operacaoEscolhida == '1')
-                    tela.Registrar();
+                    if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
+                        break;
 
-                else if (operacaoEscolhida == '2')
-                    tela.Editar();
+                    if (operacaoEscolhida == '1')
+                        tela.Registrar();
 
-                else if (operacaoEscolhida == '3')
-                    tela.Excluir();
+                    else if (operacaoEscolhida == '2')
+                        tela.Editar();
 
-                else if (operacaoEscolhida == '4')
-                    tela.VisualizarRegistros(true);
+                    else if (operacaoEscolhida == '3')
+                        tela.Excluir();
+
+                    else if (operacaoEscolhida == '4')
+                        tela.VisualizarRegistros(true);
+
+                }
             }
 
             Console.ReadLine();

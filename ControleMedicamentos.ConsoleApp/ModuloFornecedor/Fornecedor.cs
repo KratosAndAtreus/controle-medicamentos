@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
 {
@@ -41,5 +42,13 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
             return errosFiltrados;
         }
 
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            Fornecedor novasInformações = (Fornecedor)novoRegistro;
+            this.Nome = novasInformações.Nome;
+            this.CNPJ = novasInformações.CNPJ;
+            this.Telefone = novasInformações.Telefone;
+            this.Email = novasInformações.Email;
+        }
     }
 }

@@ -1,5 +1,6 @@
 using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
+using System.Collections;
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
     internal class TelaFuncionario : TelaBase
@@ -19,7 +20,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
                 "Id", "Nome", "Telefone", "CPF"
             );
 
-            EntidadeBase[] funcionariosCadastrados = repositorio.SelecionarTodos();
+            ArrayList funcionariosCadastrados = repositorio.SelecionarTodos();
 
             foreach (Funcionario funcionario in funcionariosCadastrados)
             {

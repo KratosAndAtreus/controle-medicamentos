@@ -5,6 +5,7 @@ using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 using ControleMedicamentos.ConsoleApp.ModuloRequisicao.Saida;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,7 +64,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
                 "Id", "Medicamento", "Fornecedor", "Funcionario", "Data de Requisição", "Quantidade"
             );
 
-            EntidadeBase[] requisicoesCadastradas = repositorio.SelecionarTodos();
+            ArrayList requisicoesCadastradas = repositorio.SelecionarTodos();
 
             foreach (RequisicaoEntrada requisicao in requisicoesCadastradas)
             {

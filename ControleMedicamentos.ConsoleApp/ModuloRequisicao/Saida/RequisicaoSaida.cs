@@ -1,6 +1,7 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
+using ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Saida
 {
@@ -49,6 +50,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Saida
 
             Medicamento.Quantidade -= QuantidadeRetirada;
             return true;
+        }
+
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            RequisicaoSaida novasInformações = (RequisicaoSaida)novoRegistro;
+            this.Medicamento = novasInformações.Medicamento;
+            this.Paciente = novasInformações.Paciente;
+            this.QuantidadeRetirada = novasInformações.QuantidadeRetirada;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Saida
 {
@@ -59,7 +60,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Saida
                 "Id", "Medicamento", "Paciente", "Data de Requisição", "Quantidade"
             );
 
-            EntidadeBase[] requisicoesCadastradas = repositorio.SelecionarTodos();
+            ArrayList requisicoesCadastradas = repositorio.SelecionarTodos();
 
             foreach (RequisicaoSaida requisicao in requisicoesCadastradas)
             {

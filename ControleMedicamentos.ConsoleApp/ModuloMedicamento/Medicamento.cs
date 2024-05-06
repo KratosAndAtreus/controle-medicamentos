@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 {
@@ -44,5 +45,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
             return errosFiltrados;
         }
 
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            Medicamento novasInformações = (Medicamento)novoRegistro;
+            this.Nome = novasInformações.Nome;
+            this.Descricao = novasInformações.Descricao;
+            this.Lote = novasInformações.Lote;
+            this.DataValidade = novasInformações.DataValidade;
+            this.Quantidade = novasInformações.Quantidade;
+        }
     }
 }
