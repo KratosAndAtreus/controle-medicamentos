@@ -1,5 +1,6 @@
 ﻿
 
+using System.Collections;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
@@ -17,25 +18,20 @@ namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
             CartaoSus = cartaoSus;
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+            ArrayList erros = new ArrayList();
 
             if (Nome.Length < 3)
-                erros[contadorErros++] = "O Nome do Paciente precisa conter ao menos 3 caracteres";
+                erros.Add("O nome precisa ter pelo menos 3 letras");
 
             if (string.IsNullOrEmpty(Telefone))
-                erros[contadorErros++] = "O Telefone precisa ser preenchido";
+                erros.Add("O Telefone precisa ser preenchido");
 
             if (string.IsNullOrEmpty(CartaoSus))
-                erros[contadorErros++] = "O Cartão do SUS precisa ser preenchido";
+                erros.Add("O Telefone precisa ser preenchido");
 
-            string[] errosFiltrados = new string[contadorErros];
-
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
     }
 }

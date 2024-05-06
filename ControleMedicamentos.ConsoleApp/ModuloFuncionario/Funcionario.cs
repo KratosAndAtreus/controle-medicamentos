@@ -1,3 +1,4 @@
+using System.Collections;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
@@ -16,31 +17,26 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
         }
 
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+            ArrayList erros = new ArrayList();
 
             if (Nome.Length < 2)
             {
-                erros[contadorErros++] = "O nome do FUNCIONARIO deve conter pelo menos 2 letras";
+                erros.Add("O nome do FUNCIONARIO deve conter pelo menos 2 letras");
             }
 
             if (string.IsNullOrEmpty(Telefone))
             {
-                erros[contadorErros++] = "Por favor, informe um TELEFONE";
+                erros.Add("Por favor, informe um TELEFONE");
             }
 
             if (string.IsNullOrEmpty(CPF))
             {
-                erros[contadorErros++] = "Por favor, informe um CPF";
+                erros.Add("Por favor, informe um CPF");
             }
 
-            string[] errosFiltrados = new string[contadorErros];
-
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
     }
 }
