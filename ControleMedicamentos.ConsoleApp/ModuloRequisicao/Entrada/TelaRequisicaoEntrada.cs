@@ -20,7 +20,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
         public TelaMedicamento telaMedicamento = null;
 
         public RepositorioFornecedor repositorioFornecedor = null;
-        public RepositorioFuncionario repositorioFuncionario= null;
+        public RepositorioFuncionario repositorioFuncionario = null;
         public RepositorioMedicamento repositorioMedicamento = null;
 
         public override void Registrar()
@@ -33,9 +33,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
 
             RequisicaoEntrada entidade = (RequisicaoEntrada)ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            ArrayList erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
                 ApresentarErros(erros);
                 return;
@@ -107,7 +107,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
             Console.Write("Digite o ID do funcionario solicitante: ");
             int idFuncionario = Convert.ToInt32(Console.ReadLine());
 
-            Funcionario funcionarioSelecionado = (Funcionario )repositorioFuncionario.SelecionarPorId(idFuncionario);
+            Funcionario funcionarioSelecionado = (Funcionario)repositorioFuncionario.SelecionarPorId(idFuncionario);
 
             Console.Write("Digite a quantidade do medicamente que deseja solicitar: ");
             int quantidade = Convert.ToInt32(Console.ReadLine());

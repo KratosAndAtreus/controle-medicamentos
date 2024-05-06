@@ -1,4 +1,5 @@
-﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+﻿using System.Collections;
+using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
@@ -24,28 +25,23 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
             QuantidadeSolicitada = quantidadeSolicitada;
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+            ArrayList erros = new ArrayList();
 
             if (Medicamento == null)
-                erros[contadorErros++] = "O medicamento precisa ser preenchido";
+                erros.Add("O medicamento precisa ser preenchido");
 
             if (Fornecedor == null)
-                erros[contadorErros++] = "O fornecedor precisa ser informado";
+                erros.Add("O fornecedor precisa ser informado");
 
             if (Funcionario == null)
-                erros[contadorErros++] = "O funcionário precisa ser informado";
-            
-            if (QuantidadeSolicitada < 1)
-                erros[contadorErros++] = "Por favor informe uma quantidade";
+                erros.Add("O funcionário precisa ser informado");
 
-            string[] errosFiltrados = new string[contadorErros];
+            if (QuantidadeSolicitada == null)
+                erros.Add("Por favor informe uma quantidade");
 
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
 
         public bool SolicitarMedicamento()

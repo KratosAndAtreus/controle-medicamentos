@@ -1,4 +1,5 @@
-﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+﻿using System.Collections;
+using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 using ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada;
@@ -22,25 +23,20 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Saida
             QuantidadeRetirada = quantidade;
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+            ArrayList erros = new ArrayList();
 
             if (Medicamento == null)
-                erros[contadorErros++] = "O medicamento precisa ser preenchido";
+                erros.Add("O medicamento precisa ser preenchido");
 
             if (Paciente == null)
-                erros[contadorErros++] = "O paciente precisa ser informado";
+                erros.Add("O medicamento precisa ser preenchido");
 
             if (QuantidadeRetirada < 1)
-                erros[contadorErros++] = "Por favor informe uma quantidade válida";
+                erros.Add("Por favor informe uma quantidade válida");
 
-            string[] errosFiltrados = new string[contadorErros];
-
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
 
         public bool RetirarMedicamento()
